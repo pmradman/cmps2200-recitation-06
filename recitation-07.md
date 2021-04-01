@@ -1,4 +1,4 @@
-# CMPS 2200  Recitation 09
+# CMPS 2200  Recitation 07
 
 Today we'll learn more about dynamic programming using the classic problem of computing **Fibonacci Numbers**. As you know, for the $n$th Fibonacci number $F_n=F_{n-1} + F_{n-2}$. Here are the first 11 values:
 
