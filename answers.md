@@ -1,20 +1,26 @@
-# CMPS 2200 Recitation 07
+# CMPS 2200 Recitation 7
 ## Answers
 
 **Name:**_________________________
-**Name:**_________________________
 
 
-Place all written answers from `recitation-09.md` here for easier grading.
+Place all written answers from `recitation-07.md` here for easier grading.
 
 
 
-- **2)**
+- **d.**
 
-- **3)**
+File | Fixed-Length Coding | Huffman Coding | Huffman vs. Fixed-Length
+----------------------------------------------------------------------
+f1.txt    |                     |                |
+alice29.txt    |                     |                |
+asyoulik.txt    |                     |                |
+grammar.lsp    |                     |                |
+fields.c    |                     |                |
 
-- **4)**
 
-- **6)**
 
-- **8)**
+
+- **e.**
+
+
