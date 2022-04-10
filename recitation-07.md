@@ -6,6 +6,8 @@ In this recitation, we'll look at huffman coding.
 
 All coding portions should go in `main.py` as usual.
 
+Please check this material https://github.com/allan-tulane/cmps2200-slides/blob/main/module-06-greedy/greedy-03-huffman-coding.ipynb
+
 
 ## Fixed-Length vs. Variable-Length Codes
 
