@@ -1,4 +1,4 @@
-# CMPS 2200 Recitation 7
+# CMPS 2200 Recitation 6
 ## Answers
 
 **Name:**_________________________
