@@ -4,7 +4,7 @@
 **Name:**_________________________
 
 
-Place all written answers from `recitation-07.md` here for easier grading.
+Place all written answers from `recitation-06.md` here for easier grading.
 
 
 
