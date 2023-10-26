@@ -1,52 +1,69 @@
-# CMPS 2200 Recitation 6
+# CMPS 2200  Recitation 06
 
-In this recitation, we'll look at huffman coding.
+Today we'll learn more about dynamic programming using the classic problem of computing **Fibonacci Numbers**. As you know, for the $n$th Fibonacci number $F_n=F_{n-1} + F_{n-2}$. Here are the first 11 values:
 
-**To make grading easier, please place all written solutions directly in `answers.md`, rather than scanning in handwritten work or editing this file.**
+|0|1|2|3|4|5|6|7|8|9|10|
+|-|-|-|-|-|-|-|-|-|-|- |
+|0|1|1|2|3|5|8|13|21|34|55|
 
-All coding portions should go in `main.py` as usual.
+**1** Implement a recursive solution by completing `fib_recursive` and test it with `test_fib_recursive`. In addition to $n$, we also use an array called `counts` that keeps track of how many times each $F_i$ is computed when computing $F_n$.
 
-Please check this material https://github.com/allan-tulane/cmps2200-slides/blob/main/module-06-greedy/greedy-02.ipynb
-
-
-## Fixed-Length vs. Variable-Length Codes
-
-In class we looked at the Huffman coding algorithm for data
-compresssion. Let's implement the algorithm and look at its empirical
-performance on a dataset of 5 text files, which are `alice29.txt`, `asyoulik.txt`, `f1.txt`, `fields.c`, and `grammar.lsp`.
-
-**a)** We have implemented a means to compute character frequencies
-  in a text file with the function `get_frequencies` in
-  `main.py`. Compute cost for a fixed length encoding for each text
-  file in function `fixed_length_cost(f)` by calling function `get_frequencies`.
-
-**b)** Complete the implementation of Huffman coding in
-  `make_huffman_tree`. Note that we manipulate binary trees in the
-  priority queue using the object `TreeNode`. Moreover, once the tree
-  is constructed, we must compute the actual encodings by traversing
-  the Huffman tree that has been constructed. To do this, complete the
-  implementation of `get_code`, which is a typical recursive binary
-  tree traversal. That is, given a tree node, we recursively visit the
-  left and right subtrees, appending a `0` or `1` to the encoding in
-  each direction as appropriate. If we visit a leaf of the tree (which
-  represents a character in the alphabet) we store the
-  collected encoding for that character in `code`.
-
-**c)** Now implement `huffman_cost` to compute the cost of a Huffman
-  encoding for a character set with given frequencies.
-
-**d)** Test your implementation of Huffman coding on the 5 given text
-files, and fill out a table of the encoding cost of each file for
-fixed-length and Huffman. Fill out a final column which gives the
-ratio of Huffman coding cost to fixed-length coding cost. Do you see a
-consistent trend? If so, what is it?
-
-**enter answer in `answers.md`**
+.  
+.  
+.  
 
 
-**e)** Suppose that we used Huffman coding on a document with alphabet $\Sigma$ in
-  which every character had the same frequency. What is the expected
-  cost of a Huffman encoding for the document? Is it consistent across
-  documents?
+**2** Write a recurrence for the **work** of this algorithm and solve it. Assume the input is $n$ to compute $F_n$.
 
-**enter answer in `answers.md`**
+**put answer in answers.md**  
+
+.  
+.  
+.  
+
+**3** Write a recurrence for the **span** of this algorithm and solve it.
+
+**put answer in answers.md**  
+
+.  
+.  
+.  
+
+**4** Inspecting the `counts` list, what interesting pattern emerges?
+
+**put answer in answers.md**  
+.  
+.  
+.  
+
+
+
+**5** Clearly, this implementation does a ridiculous amount of duplicate work. We should really only have to compute each $F_i$ one time, for $i \le n$. We'll next write two more efficient ways of computing $F_n$. In the first one, we'll keep an additional list called `fibs`, where `fibs[i] = F_i`, to store each value we encounter during the recursive solution. When the function is called for input $i$, we first check if $F_i$ is in `fibs`. If so, we simply return it. Otherwise, we proceed with the recursive calls. Note that we initialize `fibs` with -1's so we can tell if $F_i$ has been computed or not. Complete `fib_top_down` and test with `test_fib_top_down`. 
+
+
+.  
+.  
+.  
+
+**6** When computing $F_n$, what is the maximum number of times that `fib_top_down(i)` will be called for any value $i$? Based on this, what is the **work** and **span** of this algorithm?
+
+**put answer in answers.md**  
+.  
+.  
+.  
+
+**7** Finally, we will compute a bottom-up implementation. This is a non-recursive solution that starts at $F_0$ and iteratively computes subsequent values of $F_i$ until $F_n$ is reached. To do so, store a list of $n+1$ values, initialized to 0's, which will store the Fibonacci sequence up from $F_0$ to $F_n$. Write a for loop to fill it in, then return the last value. Complete `fib_bottom_up` and test with `test_fib_bottom_up`.
+
+.  
+.  
+.  
+
+**8** When computing $F_n$, what is the maximum number of times that $F_i$ will be read for any value $i$? Based on this, what is the **work** and **span** of `fib_bottom_up`?
+
+**put answer in answers.md**  
+.  
+.  
+.  
+
+
+`fib_top_down` and `fib_bottom_up` are two simple forms of dynamic programming. Both improve over the recursive solution by **sharing** solutions to smaller problem instances in order to reduce duplicate work. `fib_top_down` does this by starting with the original problem and caching solutions to smaller problems encountered in a recursive solution. In contrast, `fib_bottom_up` creates a table of solutions to smaller problem instances, and solves them from smallest to largest. In class and in the next assignment, we will see more complicated dynamic programming solutions where the relationship between smaller and larger problem instances is more interesting. 
