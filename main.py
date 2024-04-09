@@ -22,6 +22,3 @@ def fib_bottom_up(n):
 
 
 
-def fib_bottom_up_better(n):
-    ###TODO
-    pass
